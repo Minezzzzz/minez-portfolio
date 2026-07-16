@@ -1,0 +1,10 @@
+# Ficheiros de trabalho que não fazem parte do website publicado
+design-reference/
+preview.png
+PROJECT_IDEAS.md
+assets/images/hero-collage.png
+assets/images/hero-collage-v2.png
+
+# Ficheiros do sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portefólio de Minez, estudante de Multimédia em Portugal: design, web, vídeo, motion, fotografia e 3D.">
+  <meta name="theme-color" content="#f3ebdd">
+  <meta name="author" content="Rafael Minez">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="Minez — Design &amp; Multimédia">
+  <meta property="og:description" content="Portefólio de Rafael Minez: design, imagem, movimento e tecnologia.">
+  <meta property="og:image" content="assets/images/hero-collage-v2.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Minez — Design &amp; Multimédia</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=League+Gothic&amp;family=Newsreader:ital,opsz,wght@1,6..72,300..500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="Minez, voltar ao início">
+        <span class="brand-word" aria-hidden="true">
+          <span class="brand-letter brand-letter--m">M</span>
+          <span class="brand-letter brand-letter--i">ı<span class="brand-dot"></span></span>
+          <span class="brand-letter brand-letter--n">n</span>
+          <span class="brand-letter brand-letter--e">e</span>
+          <span class="brand-letter brand-letter--z">z</span>
+        </span>
+      </a>
+
+      <div class="header-discipline" aria-hidden="true">
+        <span class="registration-mark"></span>
+        <span>Multimédia / Portugal</span>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-label">Menu</span>
+        <span class="menu-lines" aria-hidden="true"><i></i><i></i></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#trabalho">Projetos</a>
+        <a href="#perfil">Sobre</a>
+        <a href="#lab">Laboratório</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <p class="availability"><span aria-hidden="true"></span>Disponível</p>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero shell" id="inicio" aria-labelledby="hero-title">
+      <span class="crop-mark crop-mark-a" aria-hidden="true"></span>
+      <span class="crop-mark crop-mark-b" aria-hidden="true"></span>
+
+      <div class="hero-copy reveal">
+        <p class="hero-kicker"><span>Portefólio / 2026</span><span>Edição 01</span></p>
+        <h1 id="hero-title" aria-label="Faço ideias ganharem forma.">
+          <span>Faço ideias</span>
+          <span>ganharem</span>
+          <em>forma.</em>
+        </h1>
+
+        <svg class="hero-scribble" viewBox="0 0 760 240" fill="none" aria-hidden="true">
+          <path d="M21 94C125 19 482 18 604 75C698 119 614 154 503 147C391 141 326 104 403 85C483 66 738 111 692 206"/>
+        </svg>
+
+        <p class="hero-intro">Sou estudante de Multimédia. Trabalho entre design, imagem, movimento e tecnologia para criar experiências visuais que ficam na memória.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#trabalho">Explorar projetos <span aria-hidden="true">→</span></a>
+          <a class="button button-outline" href="#perfil">Conhecer-me melhor <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-meta">
+          <span>Portugal</span>
+          <span>Design · Web · Audiovisual</span>
+        </div>
+      </div>
+
+      <div class="hero-media reveal" data-delay="1">
+        <figure class="hero-image">
+          <img src="assets/images/hero-collage-v2.webp" width="1024" height="1536" alt="Colagem editorial em papel com pincelada preta, mãos a trabalhar, fita, grelha e um recorte lavanda">
+        </figure>
+        <span class="tape-label tape-label-top" aria-hidden="true">01 / processo</span>
+        <span class="tape-label tape-label-bottom" aria-hidden="true">ideia → forma</span>
+      </div>
+
+      <p class="hero-rail" aria-hidden="true">Design / Imagem / Movimento / Web</p>
+    </section>
+
+    <section class="work section" id="trabalho" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="work-heading reveal">
+          <p class="section-index">01 / Projetos</p>
+          <h2 id="work-title"><span>Trabalho com</span> <em>intenção.</em></h2>
+          <p class="section-note">Uma seleção em construção: só entram projetos que mostram como penso, decido e faço.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filtrar projetos">
+          <button type="button" class="filter is-active" data-filter="Todos" aria-pressed="true">Todos</button>
+          <button type="button" class="filter" data-filter="Design" aria-pressed="false">Design</button>
+          <button type="button" class="filter" data-filter="Web" aria-pressed="false">Web</button>
+          <button type="button" class="filter" data-filter="Vídeo + Motion" aria-pressed="false">Vídeo + Motion</button>
+          <button type="button" class="filter" data-filter="Fotografia" aria-pressed="false">Fotografia</button>
+          <button type="button" class="filter" data-filter="3D" aria-pressed="false">3D</button>
+        </div>
+
+        <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+
+        <div class="project-stage">
+          <div class="project-list" id="project-grid"></div>
+
+          <aside class="project-preview reveal" id="project-preview" aria-live="polite">
+            <div class="preview-frame">
+              <div class="preview-art" data-preview-art aria-hidden="true"></div>
+              <span class="preview-tape" data-preview-number>01</span>
+              <span class="preview-proof">Arquivo / edição 01</span>
+              <span class="preview-note">caso em preparação ↗</span>
+            </div>
+            <div class="preview-caption">
+              <span data-preview-discipline>Design</span>
+              <span data-preview-nature>Em preparação</span>
+              <span data-preview-year>2026</span>
+            </div>
+            <p class="preview-hint">A imagem muda com o foco na linha.</p>
+          </aside>
+        </div>
+
+        <noscript><p class="noscript">Ativa o JavaScript para veres, filtrares e abrires os modelos de projeto.</p></noscript>
+      </div>
+    </section>
+
+    <aside class="manifesto" aria-label="Nota de curadoria">
+      <div class="shell manifesto-inner reveal">
+        <p class="manifesto-label">Menos, mas melhor.</p>
+        <blockquote>Quero mostrar trabalho que explica o meu olhar — não apenas tudo o que já fiz.</blockquote>
+        <svg viewBox="0 0 160 70" fill="none" aria-hidden="true"><path d="M5 50C42 7 115 5 153 36C123 27 91 28 56 43"/></svg>
+      </div>
+    </aside>
+
+    <section class="profile section shell" id="perfil" aria-labelledby="profile-title">
+      <div class="profile-heading reveal">
+        <p class="section-index">02 / Sobre</p>
+        <h2 id="profile-title">Curioso por natureza.<br>Multidisciplinar <em>por escolha.</em></h2>
+      </div>
+
+      <div class="profile-grid">
+        <div class="portrait-placeholder reveal" role="img" aria-label="Retrato editorial abstrato de Minez">
+          <i class="portrait-paper portrait-paper-a"></i>
+          <i class="portrait-paper portrait-paper-b"></i>
+          <i class="portrait-paper portrait-paper-c"></i>
+          <i class="portrait-silhouette portrait-head"></i>
+          <i class="portrait-silhouette portrait-body"></i>
+          <span>Minez / em processo</span>
+        </div>
+
+        <div class="profile-copy reveal" data-delay="1">
+          <p>Sou Técnico de Multimédia em formação, em Portugal. Interesso-me pelo ponto em que design, imagem, movimento e tecnologia se encontram. Gosto de perceber o problema, experimentar sem medo e chegar a uma solução com personalidade — mas também com propósito.</p>
+          <p class="hand-note">observar, testar, melhorar, repetir.</p>
+          <a class="text-link" href="#lab">Explorar o laboratório <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="capabilities reveal" data-delay="2" aria-label="Áreas de trabalho">
+          <div class="capability"><span>01</span><div><strong>Identidade &amp; design gráfico</strong><small>Sistemas visuais · editorial · comunicação</small></div></div>
+          <div class="capability"><span>02</span><div><strong>Web design &amp; front-end</strong><small>UX/UI · HTML · CSS · JavaScript</small></div></div>
+          <div class="capability"><span>03</span><div><strong>Vídeo &amp; motion</strong><small>Captação · montagem · animação</small></div></div>
+          <div class="capability"><span>04</span><div><strong>Fotografia &amp; pós-produção</strong><small>Imagem · cor · narrativa</small></div></div>
+          <div class="capability"><span>05</span><div><strong>3D &amp; imagem digital</strong><small>Modelação · materiais · luz</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab section" id="lab" aria-labelledby="lab-title">
+      <div class="shell">
+        <div class="lab-heading reveal">
+          <div>
+            <p class="section-index">03 / Laboratório</p>
+            <h2 id="lab-title">Testes, falhas<br>e descobertas.</h2>
+          </div>
+          <div class="lab-intro">
+            <p>O espaço onde experimento sem precisar de ter tudo resolvido.</p>
+            <span class="hand-note">ideias soltas, futuros possíveis.</span>
+          </div>
+        </div>
+
+        <div class="lab-grid" id="lab-grid">
+          <article class="lab-card reveal">
+            <span class="lab-number">101</span>
+            <div class="lab-art art-generative" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="lab-meta"><strong>Composição generativa</strong><small>formas em bruto ↗</small></div>
+          </article>
+          <article class="lab-card reveal" data-delay="1">
+            <span class="lab-number">102</span>
+            <div class="lab-art art-type" aria-hidden="true"><span>EM</span><span>MOVIMENTO</span><span>EM</span><span>MOVIMENTO</span></div>
+            <div class="lab-meta"><strong>Tipografia em movimento</strong><small>ritmo e repetição ↗</small></div>
+          </article>
+          <article class="lab-card reveal" data-delay="2">
+            <span class="lab-number">103</span>
+            <div class="lab-art art-light" aria-hidden="true"><i></i></div>
+            <div class="lab-meta"><strong>Luz, cor e matéria</strong><small>luz &amp; sombra ↗</small></div>
+          </article>
+          <article class="lab-card reveal" data-delay="3">
+            <span class="lab-number">104</span>
+            <div class="lab-art art-forms" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="lab-meta"><strong>Formas em transformação</strong><small>texturas &amp; camadas ↗</small></div>
+          </article>
+          <article class="lab-card reveal" data-delay="4">
+            <span class="lab-number">105</span>
+            <div class="lab-art art-interface" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="lab-meta"><strong>Interfaces em teste</strong><small>rascunhos úteis ↗</small></div>
+          </article>
+          <article class="lab-card lab-extra" hidden>
+            <span class="lab-number">106</span>
+            <div class="lab-art art-sound" aria-hidden="true"><i></i></div>
+            <div class="lab-meta"><strong>Som em camadas</strong><small>som &amp; ritmo ↗</small></div>
+          </article>
+          <article class="lab-card lab-extra" hidden>
+            <span class="lab-number">107</span>
+            <div class="lab-art art-volume" aria-hidden="true"><i></i><i></i></div>
+            <div class="lab-meta"><strong>Volume &amp; composição</strong><small>espaço em estudo ↗</small></div>
+          </article>
+          <article class="lab-card lab-extra" hidden>
+            <span class="lab-number">108</span>
+            <div class="lab-art art-montage" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="lab-meta"><strong>Montagem &amp; ritmo</strong><small>acidentes felizes ↗</small></div>
+          </article>
+        </div>
+
+        <button class="button button-outline lab-toggle reveal" type="button" aria-expanded="false" aria-controls="lab-grid">
+          <span>Ver todos os estudos</span><b aria-hidden="true">→</b>
+        </button>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="shell contact-inner reveal">
+        <p class="section-index">04 / Contacto</p>
+        <div class="contact-grid">
+          <div class="contact-heading">
+            <h2 id="contact-title">Tens uma ideia?<br>Vamos dar-lhe<br><em>forma.</em></h2>
+          </div>
+          <div class="contact-action">
+            <p>Se tens uma oportunidade, um projeto ou apenas uma boa ideia, conta-me. Gosto de conversas que podem transformar-se em trabalho com sentido.</p>
+            <a class="button button-primary" href="mailto:rafael.f.minez@gmail.com">Enviar mensagem <span aria-hidden="true">→</span></a>
+            <p class="contact-note hand-note">vamos criar algo com intenção.</p>
+          </div>
+        </div>
+
+        <div class="contact-details">
+          <div><small>Email</small><a href="mailto:rafael.f.minez@gmail.com">rafael.f.minez@gmail.com</a></div>
+          <div><small>Localização</small><span>Portugal</span></div>
+          <div class="social-links"><small>Curriculum Vitae</small><a href="assets/docs/Rafael_Minez_CV.pdf" target="_blank" rel="noopener">Ver CV em PDF ↗</a></div>
+          <p class="contact-availability"><span aria-hidden="true"></span>Disponível para novos projetos</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>© 2026 Minez. Desenhado e desenvolvido com curiosidade.</p>
+      <a href="#inicio">Voltar ao início <span aria-hidden="true">→</span></a>
+    </div>
+  </footer>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" type="button" aria-label="Fechar estudo de caso">Fechar <span aria-hidden="true">×</span></button>
+      <div id="dialog-content"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
