@@ -8,7 +8,9 @@ Website estático de Rafael Minez, construído com HTML, CSS e JavaScript sem fr
 
 - `index.html` — conteúdo e estrutura do website.
 - `styles.css` — sistema visual e comportamento responsivo.
-- `script.js` — filtros, interações, menu e estados de curadoria.
+- `projects.json` — única fonte de dados dos projetos.
+- `script.js` — carrega os projetos, cria filtros, grid, modal e navegação, além das restantes interações.
+- `COMO-ADICIONAR-UM-PROJETO.md` — guia simples para atualizar projetos sem mexer no código.
 - `assets/images/hero-collage-v2.webp` — imagem principal otimizada.
 - `assets/docs/Rafael_Minez_CV.pdf` — curriculum vitae público.
 - `_headers` — cabeçalhos de segurança usados pelo Cloudflare Pages.
@@ -44,7 +46,7 @@ git push
 
 ## Antes de revelar um projeto
 
-1. Substituir o título e a descrição provisórios em `script.js`.
+1. Seguir `COMO-ADICIONAR-UM-PROJETO.md` e editar apenas `projects.json`.
 2. Indicar claramente contexto, função pessoal, equipa e ferramentas.
 3. Mostrar processo, resultado real e aprendizagem.
 4. Otimizar imagens para WebP ou AVIF.

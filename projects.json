@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Seleção principal — em curadoria",
+    "slug": "projeto-destaque",
+    "year": "[A CONFIRMAR: ano]",
+    "role": "[A CONFIRMAR: função no projeto]",
+    "tags": ["Design"],
+    "cover": {
+      "src": "",
+      "alt": "[A CONFIRMAR: descrição da imagem de capa]"
+    },
+    "gallery": [],
+    "pitch": "Esta primeira posição fica reservada ao trabalho que melhor representa a direção que queres seguir.",
+    "context": "[A CONFIRMAR: quem fez o pedido, para que público, com que objetivo e dentro de que limitações.]",
+    "process": "[A CONFIRMAR: pesquisa, esboços, testes, storyboard, protótipo, direção visual e iterações.]",
+    "challenges": "[A CONFIRMAR: principal dificuldade do projeto e como foi abordada.]",
+    "outcome": "[A CONFIRMAR: resultado final, evidência real, aprendizagem e o que melhorarias.]",
+    "links": [],
+    "featured": true,
+    "draft": false
+  },
+  {
+    "title": "Identidade visual — em curadoria",
+    "slug": "identidade-visual",
+    "year": "[A CONFIRMAR: ano]",
+    "role": "[A CONFIRMAR: contribuição pessoal]",
+    "tags": ["Design"],
+    "cover": {
+      "src": "",
+      "alt": "[A CONFIRMAR: descrição da imagem de capa]"
+    },
+    "gallery": [],
+    "pitch": "Espaço reservado para apresentar uma identidade aplicada como sistema, e não apenas um logótipo isolado.",
+    "context": "[A CONFIRMAR: organização, evento ou produto, público e perceção que a identidade precisava de criar.]",
+    "process": "[A CONFIRMAR: território visual, ideias rejeitadas, construção do sistema e testes em vários suportes.]",
+    "challenges": "[A CONFIRMAR: decisões difíceis, limitações e alterações feitas durante o projeto.]",
+    "outcome": "[A CONFIRMAR: aplicações finais, resultado, aprendizagem e pontos a melhorar.]",
+    "links": [],
+    "featured": false,
+    "draft": false
+  },
+  {
+    "title": "Experiência web — em curadoria",
+    "slug": "experiencia-web",
+    "year": "[A CONFIRMAR: ano]",
+    "role": "[A CONFIRMAR: UX, UI, código ou outras responsabilidades]",
+    "tags": ["Web"],
+    "cover": {
+      "src": "",
+      "alt": "[A CONFIRMAR: descrição da imagem de capa]"
+    },
+    "gallery": [],
+    "pitch": "Espaço reservado para uma experiência web funcional, responsiva e acessível.",
+    "context": "[A CONFIRMAR: problema, tarefas principais do utilizador e restrições de conteúdo, tecnologia e prazo.]",
+    "process": "[A CONFIRMAR: pesquisa, arquitetura, wireframes, interface, protótipo, desenvolvimento e testes.]",
+    "challenges": "[A CONFIRMAR: principal desafio técnico ou de experiência e forma de resolução.]",
+    "outcome": "[A CONFIRMAR: resultado, testes reais, desempenho, acessibilidade e aprendizagem.]",
+    "links": [],
+    "featured": false,
+    "draft": false
+  },
+  {
+    "title": "Vídeo ou motion — em curadoria",
+    "slug": "video-motion",
+    "year": "[A CONFIRMAR: ano]",
+    "role": "[A CONFIRMAR: conceito, storyboard, animação, edição, som ou outras responsabilidades]",
+    "tags": ["Vídeo + Motion"],
+    "cover": {
+      "src": "",
+      "alt": "[A CONFIRMAR: descrição do frame escolhido para capa]"
+    },
+    "gallery": [],
+    "pitch": "Espaço reservado para uma peça onde ritmo, composição, som e movimento trabalham em conjunto.",
+    "context": "[A CONFIRMAR: formato, duração, plataforma, público e mensagem.]",
+    "process": "[A CONFIRMAR: storyboard, styleframes e decisões de timing, transição e linguagem de movimento.]",
+    "challenges": "[A CONFIRMAR: dificuldades de produção, montagem, ritmo, som ou legibilidade.]",
+    "outcome": "[A CONFIRMAR: peça final, feedback, aprendizagem e o que melhorarias.]",
+    "links": [],
+    "featured": false,
+    "draft": false
+  },
+  {
+    "title": "Série fotográfica — em curadoria",
+    "slug": "serie-fotografica",
+    "year": "[A CONFIRMAR: ano]",
+    "role": "[A CONFIRMAR: direção, produção, fotografia, seleção ou pós-produção]",
+    "tags": ["Fotografia"],
+    "cover": {
+      "src": "",
+      "alt": "[A CONFIRMAR: descrição da fotografia escolhida para capa]"
+    },
+    "gallery": [],
+    "pitch": "Espaço reservado para uma série curta com conceito e sequência deliberada.",
+    "context": "[A CONFIRMAR: tema, intenção narrativa, abordagem visual e condições de produção.]",
+    "process": "[A CONFIRMAR: contactos, escolhas de sequência, tratamento, enquadramento e luz.]",
+    "challenges": "[A CONFIRMAR: limitações de produção, seleção ou coerência visual.]",
+    "outcome": "[A CONFIRMAR: sequência final, formato de apresentação, aprendizagem e melhorias futuras.]",
+    "links": [],
+    "featured": false,
+    "draft": false
+  },
+  {
+    "title": "Estudo 3D — em curadoria",
+    "slug": "estudo-3d",
+    "year": "[A CONFIRMAR: ano]",
+    "role": "[A CONFIRMAR: modelação, materiais, iluminação, animação ou pós-produção]",
+    "tags": ["3D"],
+    "cover": {
+      "src": "",
+      "alt": "[A CONFIRMAR: descrição do render escolhido para capa]"
+    },
+    "gallery": [],
+    "pitch": "Espaço reservado para mostrar forma, materiais, iluminação e composição, incluindo o trabalho anterior ao render final.",
+    "context": "[A CONFIRMAR: objeto, referência visual, contexto de comunicação e formatos finais.]",
+    "process": "[A CONFIRMAR: referências, wireframe, clay render, materiais, iluminação e decisões de composição.]",
+    "challenges": "[A CONFIRMAR: dificuldades de topologia, materiais, otimização, luz ou render.]",
+    "outcome": "[A CONFIRMAR: imagens ou animação final, aprendizagem e aspetos a melhorar.]",
+    "links": [],
+    "featured": false,
+    "draft": false
+  }
+]

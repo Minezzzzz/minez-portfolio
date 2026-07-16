@@ -1,115 +1,19 @@
-const portfolioData = [
-  {
-    id: "projeto-destaque",
-    number: "01",
-    category: "Design",
-    title: "Seleção principal — em curadoria",
-    discipline: "Projeto em destaque",
-    nature: "Em preparação",
-    year: "2026",
-    role: "Função a definir",
-    tools: "Ferramentas a definir",
-    art: "book",
-    summary: "Esta primeira posição fica reservada ao trabalho que melhor representa a direção que queres seguir.",
-    briefing: "Substitui este texto por um resumo claro do problema: quem fez o pedido, para que público, com que objetivo e dentro de que limitações.",
-    contribution: "Explica exatamente o que fizeste. Se o projeto foi de grupo, separa a tua contribuição do trabalho da equipa e inclui os créditos.",
-    process: "Mostra duas a quatro decisões que mudaram o resultado: pesquisa, esboços, testes, storyboard, protótipo, direção visual ou iterações.",
-    result: "Apresenta o resultado final em contexto e acrescenta apenas evidência real: feedback, testes, desempenho, alcance ou cumprimento dos objetivos.",
-    learning: "Fecha com uma reflexão curta sobre o que aprendeste, o que melhorarias e como este trabalho influenciou o projeto seguinte."
-  },
-  {
-    id: "identidade-visual",
-    number: "02",
-    category: "Design",
-    title: "Identidade visual — em curadoria",
-    discipline: "Identidade & design gráfico",
-    nature: "Académico / pessoal",
-    year: "2026",
-    role: "Direção visual a definir",
-    tools: "Ferramentas a definir",
-    art: "identity",
-    summary: "Reserva este caso para uma identidade aplicada como sistema, e não apenas para um logótipo isolado.",
-    briefing: "Identifica a organização, evento ou produto, o seu público e a perceção que a identidade precisa de criar.",
-    contribution: "Distingue conceito, logótipo, tipografia, paleta, composição, direção de arte e aplicações que produziste.",
-    process: "Mostra território visual, ideias rejeitadas, construção do sistema e testes em diferentes escalas e suportes.",
-    result: "Inclui as aplicações mais relevantes: cartaz, editorial, sinalética, redes sociais, embalagem ou motion.",
-    learning: "Regista o que tornou o sistema coerente e onde seria necessário aprofundar a implementação."
-  },
-  {
-    id: "experiencia-web",
-    number: "03",
-    category: "Web",
-    title: "Experiência web — em curadoria",
-    discipline: "Web design & front-end",
-    nature: "Pessoal / cliente",
-    year: "2026",
-    role: "UX, UI e código a definir",
-    tools: "HTML · CSS · JavaScript",
-    art: "web",
-    summary: "Usa este espaço para uma experiência web funcional, responsiva e acessível.",
-    briefing: "Resume o problema, as tarefas principais do utilizador e as restrições de conteúdo, tecnologia e prazo.",
-    contribution: "Indica se fizeste pesquisa, arquitetura, wireframes, interface, protótipo, desenvolvimento ou testes.",
-    process: "Mostra o percurso entre grelha, sistema visual, componentes, estados responsivos e iterações após testes.",
-    result: "Liga ao site e ao código quando existirem. Acrescenta resultados reais de acessibilidade, desempenho ou testes.",
-    learning: "Explica uma decisão técnica ou de experiência que voltarias a aplicar noutro projeto."
-  },
-  {
-    id: "video-motion",
-    number: "04",
-    category: "Vídeo + Motion",
-    title: "Vídeo ou motion — em curadoria",
-    discipline: "Vídeo & motion",
-    nature: "Académico / pessoal",
-    year: "2026",
-    role: "Conceito e animação a definir",
-    tools: "Ferramentas a definir",
-    art: "motion",
-    summary: "Apresenta uma peça curta onde ritmo, composição, som e movimento trabalham em conjunto.",
-    briefing: "Define formato, duração, plataforma, público e mensagem antes de mostrares os frames finais.",
-    contribution: "Indica o teu papel em conceito, guião, storyboard, design, animação, edição, som e finalização.",
-    process: "Inclui storyboard, styleframes e duas ou três decisões de timing, transição ou linguagem de movimento.",
-    result: "Mostra a peça com poster, legendas e controlos. Identifica música, som e restantes créditos.",
-    learning: "Reflete sobre legibilidade, ritmo e o que os testes sem som revelaram."
-  },
-  {
-    id: "serie-fotografica",
-    number: "05",
-    category: "Fotografia",
-    title: "Série fotográfica — em curadoria",
-    discipline: "Fotografia & pós-produção",
-    nature: "Pessoal / editorial",
-    year: "2026",
-    role: "Direção e fotografia a definir",
-    tools: "Ferramentas a definir",
-    art: "photo",
-    summary: "Escolhe uma série curta com conceito e sequência, em vez de fotografias soltas sem contexto.",
-    briefing: "Apresenta o tema, a intenção narrativa, a abordagem visual e as condições de produção.",
-    contribution: "Explica direção de arte, produção, iluminação, captação, seleção, cor e paginação que realizaste.",
-    process: "Mostra contactos, escolhas de sequência e como tratamento, enquadramento e luz servem a ideia.",
-    result: "Publica 10–15 imagens fortes numa sequência deliberada e, se fizer sentido, uma pequena zine.",
-    learning: "Regista o que aprendeste sobre seleção, consistência e edição de uma narrativa fotográfica."
-  },
-  {
-    id: "estudo-3d",
-    number: "06",
-    category: "3D",
-    title: "Estudo 3D — em curadoria",
-    discipline: "3D & imagem digital",
-    nature: "Académico / pessoal",
-    year: "2026",
-    role: "3D e direção de arte a definir",
-    tools: "Ferramentas a definir",
-    art: "3d",
-    summary: "Usa este caso para mostrar forma, materiais, iluminação e composição, incluindo o trabalho antes do render final.",
-    briefing: "Define o objeto, a referência visual, o contexto de comunicação e os formatos finais.",
-    contribution: "Especifica modelação, UV, texturas, materiais, iluminação, animação, render e pós-produção.",
-    process: "Inclui referências, wireframe, clay render, testes de material e uma decisão importante de luz.",
-    result: "Apresenta imagens finais, um loop curto ou peças de campanha, sem esconder os créditos de recursos externos.",
-    learning: "Explica o que melhorarias na topologia, nos materiais, na otimização ou na direção de arte."
-  }
-];
+const PROJECTS_URL = "./projects.json";
+const PROJECT_HASH_PREFIX = "#projeto/";
+const FILTER_ORDER = ["Design", "Web", "Vídeo + Motion", "Fotografia", "3D"];
+const ART_BY_CATEGORY = {
+  Design: "identity",
+  Web: "web",
+  "Vídeo + Motion": "motion",
+  Fotografia: "photo",
+  "3D": "3d",
+  Multimédia: "book"
+};
+
+let portfolioData = [];
 
 const projectGrid = document.querySelector("#project-grid");
+const filterGroup = document.querySelector(".filters");
 const filterStatus = document.querySelector("#filter-status");
 const previewArt = document.querySelector("[data-preview-art]");
 const previewNumber = document.querySelector("[data-preview-number]");
@@ -145,6 +49,175 @@ let previewTimer = null;
 let menuFocusTimer = null;
 let scrollTicking = false;
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function safeText(value, fallback) {
+  const text = typeof value === "string" || typeof value === "number"
+    ? String(value).trim()
+    : "";
+  return text || fallback;
+}
+
+function safeLocalMediaUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return "";
+
+  try {
+    const resolved = new URL(value.trim(), document.baseURI);
+    return resolved.origin === window.location.origin ? value.trim() : "";
+  } catch {
+    return "";
+  }
+}
+
+function safeLinkUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return "";
+
+  try {
+    const resolved = new URL(value.trim(), document.baseURI);
+    return ["http:", "https:", "mailto:"].includes(resolved.protocol) ? value.trim() : "";
+  } catch {
+    return "";
+  }
+}
+
+function normalizeMedia(media, index = 0) {
+  if (typeof media === "string") {
+    const src = safeLocalMediaUrl(media);
+    if (!src) return null;
+
+    return {
+      src,
+      alt: "",
+      caption: "",
+      type: /\.(mp4|webm|ogg)$/i.test(src) ? "video" : "image",
+      poster: ""
+    };
+  }
+
+  if (!media || typeof media !== "object") return null;
+  const src = safeLocalMediaUrl(media.src);
+  if (!src && index > 0) return null;
+
+  return {
+    src,
+    alt: safeText(media.alt, ""),
+    caption: safeText(media.caption, ""),
+    type: media.type === "video" || /\.(mp4|webm|ogg)$/i.test(src) ? "video" : "image",
+    poster: safeLocalMediaUrl(media.poster)
+  };
+}
+
+function normalizeLinks(links) {
+  if (Array.isArray(links)) {
+    return links
+      .map((link) => ({
+        label: safeText(link?.label, "Ver ligação"),
+        url: safeLinkUrl(link?.url)
+      }))
+      .filter((link) => link.url);
+  }
+
+  if (links && typeof links === "object") {
+    return Object.entries(links)
+      .map(([label, url]) => ({ label: safeText(label, "Ver ligação"), url: safeLinkUrl(url) }))
+      .filter((link) => link.url);
+  }
+
+  return [];
+}
+
+function categoryFromTags(tags) {
+  return FILTER_ORDER.find((category) => (
+    tags.some((tag) => tag.toLocaleLowerCase("pt-PT") === category.toLocaleLowerCase("pt-PT"))
+  )) || "Multimédia";
+}
+
+function hasUnconfirmedContent(project) {
+  return [
+    project.title,
+    project.year,
+    project.role,
+    project.pitch,
+    project.context,
+    project.process,
+    project.challenges,
+    project.outcome
+  ].some((value) => value.includes("[A CONFIRMAR"));
+}
+
+function normalizeProject(rawProject, sourceIndex) {
+  if (!rawProject || typeof rawProject !== "object") return null;
+
+  const slug = safeText(rawProject.slug, "");
+  const title = safeText(rawProject.title, "");
+  if (!title || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    console.warn(`Projeto ignorado na posição ${sourceIndex + 1}: title ou slug inválido.`);
+    return null;
+  }
+
+  const tags = Array.isArray(rawProject.tags)
+    ? rawProject.tags.map((tag) => safeText(tag, "")).filter(Boolean)
+    : [];
+  const category = categoryFromTags(tags);
+  const cover = normalizeMedia(rawProject.cover) || normalizeMedia({ src: "", alt: "" });
+  const gallery = Array.isArray(rawProject.gallery)
+    ? rawProject.gallery.map((media, index) => normalizeMedia(media, index + 1)).filter(Boolean)
+    : [];
+
+  const project = {
+    title,
+    slug,
+    year: safeText(rawProject.year, "[A CONFIRMAR: ano]"),
+    role: safeText(rawProject.role, "[A CONFIRMAR: papel no projeto]"),
+    tags,
+    cover,
+    gallery,
+    pitch: safeText(rawProject.pitch, "[A CONFIRMAR: frase curta sobre o projeto]"),
+    context: safeText(rawProject.context, "[A CONFIRMAR: contexto e briefing]"),
+    process: safeText(rawProject.process, "[A CONFIRMAR: processo]"),
+    challenges: safeText(rawProject.challenges, "[A CONFIRMAR: desafios]"),
+    outcome: safeText(rawProject.outcome, "[A CONFIRMAR: resultado e aprendizagens]"),
+    grade: rawProject.grade == null ? null : safeText(rawProject.grade, ""),
+    links: normalizeLinks(rawProject.links),
+    featured: rawProject.featured === true,
+    draft: rawProject.draft === true,
+    category,
+    art: ART_BY_CATEGORY[category] || ART_BY_CATEGORY.Multimédia,
+    sourceIndex
+  };
+
+  project.isUnconfirmed = hasUnconfirmedContent(project);
+  return project;
+}
+
+function normalizeProjects(rawProjects) {
+  const seenSlugs = new Set();
+  const validProjects = rawProjects
+    .map(normalizeProject)
+    .filter((project) => {
+      if (!project || seenSlugs.has(project.slug)) {
+        if (project) console.warn(`Projeto ignorado: slug duplicado "${project.slug}".`);
+        return false;
+      }
+      seenSlugs.add(project.slug);
+      return true;
+    });
+
+  const publishedProjects = validProjects
+    .filter((project) => !project.draft)
+    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.sourceIndex - b.sourceIndex)
+    .map((project, index) => ({ ...project, number: String(index + 1).padStart(2, "0") }));
+
+  return { validCount: validProjects.length, publishedProjects };
+}
+
 function artworkMarkup(type) {
   const artworks = {
     book: '<div class="proof-composition"></div>',
@@ -162,18 +235,27 @@ function projectArtClass(project) {
   return `art-${project.art}`;
 }
 
+function coverMarkup(project, decorative = true) {
+  const src = project.cover?.src;
+  if (!src) return artworkMarkup(project.art);
+
+  const alt = decorative ? "" : safeText(project.cover.alt, `Imagem do projeto ${project.title}`);
+  return `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="${decorative ? "lazy" : "eager"}" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;">`;
+}
+
 function projectRow(project) {
+  const status = project.isUnconfirmed ? "Em curadoria" : "Publicado";
   return `
-    <article class="project-row reveal" data-project-row="${project.id}">
-      <button class="project-button" type="button" data-project="${project.id}" aria-haspopup="dialog" aria-controls="project-dialog" aria-label="Abrir ficha editorial: ${project.title}">
-        <span class="project-number">${project.number}</span>
+    <article class="project-row reveal" data-project-row="${escapeHtml(project.slug)}">
+      <button class="project-button" type="button" data-project="${escapeHtml(project.slug)}" aria-haspopup="dialog" aria-controls="project-dialog" aria-label="Abrir ficha editorial: ${escapeHtml(project.title)}">
+        <span class="project-number">${escapeHtml(project.number)}</span>
         <span class="project-info">
-          <span class="project-title">${project.title}</span>
-          <span class="project-discipline">${project.discipline}</span>
+          <span class="project-title">${escapeHtml(project.title)}</span>
+          <span class="project-discipline">${escapeHtml(project.category)}</span>
         </span>
-        <span class="project-status">Em curadoria</span>
+        <span class="project-status">${status}</span>
         <span class="project-arrow" aria-hidden="true">→</span>
-        <span class="project-mobile-art project-art ${projectArtClass(project)}" aria-hidden="true">${artworkMarkup(project.art)}</span>
+        <span class="project-mobile-art project-art ${projectArtClass(project)}" aria-hidden="true">${coverMarkup(project)}</span>
       </button>
     </article>
   `;
@@ -185,38 +267,79 @@ function visibleProjects(filter = activeFilter) {
     : portfolioData.filter((project) => project.category === filter);
 }
 
+function renderFilters() {
+  const categories = [...new Set(portfolioData.map((project) => project.category))]
+    .sort((a, b) => {
+      const aIndex = FILTER_ORDER.indexOf(a);
+      const bIndex = FILTER_ORDER.indexOf(b);
+      return (aIndex < 0 ? FILTER_ORDER.length : aIndex) - (bIndex < 0 ? FILTER_ORDER.length : bIndex);
+    });
+  const filters = ["Todos", ...categories];
+
+  if (!filters.includes(activeFilter)) activeFilter = "Todos";
+  filterGroup.innerHTML = filters.map((filter) => `
+    <button type="button" class="filter${filter === activeFilter ? " is-active" : ""}" data-filter="${escapeHtml(filter)}" aria-pressed="${filter === activeFilter}">${escapeHtml(filter)}</button>
+  `).join("");
+}
+
+function renderEmptyProjects(message) {
+  projectGrid.innerHTML = `
+    <article class="project-row reveal is-visible">
+      <div class="project-button">
+        <span class="project-number">—</span>
+        <span class="project-info">
+          <span class="project-title">Arquivo em atualização</span>
+          <span class="project-discipline">${escapeHtml(message)}</span>
+        </span>
+      </div>
+    </article>
+  `;
+  filterStatus.textContent = message;
+  previewArt.className = "preview-art art-book";
+  previewArt.innerHTML = artworkMarkup("book");
+  previewNumber.textContent = "—";
+  previewDiscipline.textContent = "Arquivo";
+  previewNature.textContent = "Em atualização";
+  previewYear.textContent = "—";
+  projectPreview.setAttribute("aria-label", message);
+}
+
 function renderProjects(filter = activeFilter) {
   const projects = visibleProjects(filter);
+  if (!projects.length) {
+    renderEmptyProjects(filter === "Todos"
+      ? "Ainda não existem projetos publicados."
+      : `Ainda não existem projetos publicados na categoria ${filter}.`);
+    return;
+  }
+
   projectGrid.innerHTML = projects.map(projectRow).join("");
   filterStatus.textContent = `${projects.length} ${projects.length === 1 ? "projeto apresentado" : "projetos apresentados"} na categoria ${filter}.`;
   registerReveals(projectGrid.querySelectorAll(".reveal"));
-
-  if (projects[0]) {
-    updatePreview(projects[0], true);
-  }
+  updatePreview(projects[0], true);
 }
 
-function setActiveRow(projectId) {
+function setActiveRow(projectSlug) {
   projectGrid.querySelectorAll("[data-project-row]").forEach((row) => {
-    row.classList.toggle("is-active", row.dataset.projectRow === projectId);
+    row.classList.toggle("is-active", row.dataset.projectRow === projectSlug);
   });
 }
 
 function updatePreview(project, immediate = false) {
-  if (!project || activePreviewId === project.id) {
-    setActiveRow(project?.id);
+  if (!project || activePreviewId === project.slug) {
+    setActiveRow(project?.slug);
     return;
   }
 
-  activePreviewId = project.id;
-  setActiveRow(project.id);
+  activePreviewId = project.slug;
+  setActiveRow(project.slug);
 
   const applyPreview = () => {
     previewArt.className = `preview-art ${projectArtClass(project)}`;
-    previewArt.innerHTML = artworkMarkup(project.art);
+    previewArt.innerHTML = coverMarkup(project);
     previewNumber.textContent = project.number;
-    previewDiscipline.textContent = project.discipline;
-    previewNature.textContent = project.nature;
+    previewDiscipline.textContent = project.category;
+    previewNature.textContent = project.isUnconfirmed ? "Em preparação" : "Publicado";
     previewYear.textContent = project.year;
     projectPreview.setAttribute("aria-label", `Pré-visualização de ${project.title}`);
     requestAnimationFrame(() => previewArt.classList.remove("is-changing"));
@@ -232,51 +355,183 @@ function updatePreview(project, immediate = false) {
   previewTimer = window.setTimeout(applyPreview, 150);
 }
 
+function galleryMarkup(project, sectionNumber) {
+  if (!project.gallery.length) return "";
+
+  const items = project.gallery.map((media, index) => {
+    const caption = media.caption
+      ? `<figcaption>${escapeHtml(media.caption)}</figcaption>`
+      : "";
+
+    if (media.type === "video") {
+      const poster = media.poster ? ` poster="${escapeHtml(media.poster)}"` : "";
+      return `
+        <figure>
+          <video controls preload="metadata"${poster} style="display:block;width:100%;height:auto;">
+            <source src="${escapeHtml(media.src)}">
+            O teu navegador não consegue reproduzir este vídeo.
+          </video>
+          ${caption}
+        </figure>
+      `;
+    }
+
+    const alt = safeText(media.alt, `Imagem ${index + 1} do projeto ${project.title}`);
+    return `
+      <figure>
+        <img src="${escapeHtml(media.src)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">
+        ${caption}
+      </figure>
+    `;
+  }).join("");
+
+  return `
+    <section class="case-section">
+      <h3>${String(sectionNumber).padStart(2, "0")} / Galeria</h3>
+      ${items}
+    </section>
+  `;
+}
+
+function linksMarkup(project, sectionNumber) {
+  if (!project.links.length) return "";
+
+  return `
+    <section class="case-section">
+      <h3>${String(sectionNumber).padStart(2, "0")} / Ligações</h3>
+      <div class="hero-actions">
+        ${project.links.map((link) => {
+          const external = /^https?:/i.test(link.url);
+          return `<a class="button" href="${escapeHtml(link.url)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function projectNavigationMarkup(project, sectionNumber) {
+  const projects = visibleProjects(activeFilter);
+  const index = projects.findIndex((item) => item.slug === project.slug);
+  if (index < 0 || projects.length < 2) return "";
+
+  const previous = projects[index - 1];
+  const next = projects[index + 1];
+  return `
+    <section class="case-section">
+      <h3>${String(sectionNumber).padStart(2, "0")} / Continuar a explorar</h3>
+      <div class="hero-actions" aria-label="Navegação entre projetos">
+        ${previous ? `<button class="button" type="button" data-project-nav="${escapeHtml(previous.slug)}"><span aria-hidden="true">←</span> ${escapeHtml(previous.title)}</button>` : ""}
+        ${next ? `<button class="button" type="button" data-project-nav="${escapeHtml(next.slug)}">${escapeHtml(next.title)} <span aria-hidden="true">→</span></button>` : ""}
+      </div>
+    </section>
+  `;
+}
+
 function caseStudyMarkup(project) {
+  const tags = project.tags.length ? project.tags.join(" · ") : "[A CONFIRMAR: competências e ferramentas]";
+  const status = project.isUnconfirmed ? "Em curadoria" : "Publicado";
+  const visualIsDecorative = !project.cover?.src;
+  let nextSectionNumber = 6;
+  const gallery = galleryMarkup(project, nextSectionNumber);
+  if (gallery) nextSectionNumber += 1;
+  const links = linksMarkup(project, nextSectionNumber);
+  if (links) nextSectionNumber += 1;
+  const projectNavigation = projectNavigationMarkup(project, nextSectionNumber);
+
+  // The grade stays in the data model but is intentionally hidden by default.
   return `
     <section class="case-hero">
       <div class="case-heading">
         <span class="case-label">Arquivo Minez · ficha editorial</span>
-        <h2 id="dialog-title">${project.title}</h2>
-        <p>${project.summary}</p>
+        <h2 id="dialog-title" tabindex="-1">${escapeHtml(project.title)}</h2>
+        <p>${escapeHtml(project.pitch)}</p>
       </div>
-      <div class="case-visual" aria-hidden="true">
-        <div class="project-art ${projectArtClass(project)}">${artworkMarkup(project.art)}</div>
+      <div class="case-visual"${visualIsDecorative ? ' aria-hidden="true"' : ""}>
+        <div class="project-art ${projectArtClass(project)}">${coverMarkup(project, visualIsDecorative)}</div>
       </div>
     </section>
 
     <div class="case-meta">
-      <div><small>Área</small><strong>${project.discipline}</strong></div>
-      <div><small>Natureza</small><strong>${project.nature}</strong></div>
-      <div><small>Estado</small><strong>Em curadoria</strong></div>
-      <div><small>Ano</small><strong>${project.year}</strong></div>
+      <div><small>Área</small><strong>${escapeHtml(project.category)}</strong></div>
+      <div><small>O meu papel</small><strong>${escapeHtml(project.role)}</strong></div>
+      <div><small>Estado</small><strong>${status}</strong></div>
+      <div><small>Ano</small><strong>${escapeHtml(project.year)}</strong></div>
     </div>
 
     <div class="case-body">
-      <aside><p>Em<br>curadoria.</p></aside>
+      <aside><p>${status === "Publicado" ? "Caso<br>publicado." : "Em<br>curadoria."}</p></aside>
       <div class="case-sections">
         <section class="case-section">
-          <h3>01 / O lugar deste projeto</h3>
-          <p>${project.summary}</p>
+          <h3>01 / Contexto</h3>
+          <p>${escapeHtml(project.context)}</p>
         </section>
         <section class="case-section">
-          <h3>02 / Próxima edição</h3>
-          <p>O estudo completo será publicado quando a seleção visual, o processo e os créditos estiverem prontos. Assim, o arquivo cresce sem confundir trabalho em curso com trabalho final.</p>
-          <div class="case-progress" aria-label="Etapas editoriais do projeto">
-            <span class="is-current">Seleção</span><span>Documentação</span><span>Publicação</span>
-          </div>
+          <h3>02 / O meu papel</h3>
+          <p>${escapeHtml(project.role)}</p>
+          <p><strong>Competências e ferramentas:</strong> ${escapeHtml(tags)}</p>
         </section>
+        <section class="case-section">
+          <h3>03 / Processo</h3>
+          <p>${escapeHtml(project.process)}</p>
+        </section>
+        <section class="case-section">
+          <h3>04 / Desafios</h3>
+          <p>${escapeHtml(project.challenges)}</p>
+        </section>
+        <section class="case-section">
+          <h3>05 / Resultado e aprendizagens</h3>
+          <p>${escapeHtml(project.outcome)}</p>
+        </section>
+        ${gallery}
+        ${links}
+        ${projectNavigation}
       </div>
     </div>
   `;
 }
 
-function openProject(projectId, trigger) {
-  const project = portfolioData.find((item) => item.id === projectId);
+function findProject(projectSlug) {
+  return portfolioData.find((project) => project.slug === projectSlug);
+}
+
+function projectSlugFromHash() {
+  if (!window.location.hash.startsWith(PROJECT_HASH_PREFIX)) return "";
+
+  try {
+    return decodeURIComponent(window.location.hash.slice(PROJECT_HASH_PREFIX.length));
+  } catch {
+    return "";
+  }
+}
+
+function replaceHash(hash) {
+  window.history.replaceState(null, "", hash);
+}
+
+function updateProjectHash(projectSlug, replace = false) {
+  const hash = `${PROJECT_HASH_PREFIX}${encodeURIComponent(projectSlug)}`;
+  const state = { minezProjectOverlay: true };
+  window.history[replace ? "replaceState" : "pushState"](state, "", hash);
+}
+
+function showProjectInDialog(project, focusTitle = false) {
+  if (!project) return;
+  dialogContent.innerHTML = caseStudyMarkup(project);
+  dialog.scrollTop = 0;
+  updatePreview(project, true);
+
+  if (focusTitle) {
+    window.requestAnimationFrame(() => dialogContent.querySelector("#dialog-title")?.focus());
+  }
+}
+
+function openProject(projectSlug, trigger, updateHash = true) {
+  const project = findProject(projectSlug);
   if (!project) return;
 
   lastDialogTrigger = trigger || document.activeElement;
-  dialogContent.innerHTML = caseStudyMarkup(project);
+  showProjectInDialog(project);
+  if (updateHash) updateProjectHash(project.slug);
   document.body.classList.add("dialog-open");
 
   if (typeof dialog.showModal === "function") {
@@ -285,17 +540,24 @@ function openProject(projectId, trigger) {
     dialog.setAttribute("open", "");
   }
 
-  dialog.scrollTop = 0;
   window.requestAnimationFrame(() => dialogClose.focus());
 }
 
-function closeProject() {
+function closeProject(updateHash = true) {
+  const shouldReturnThroughHistory = updateHash
+    && window.location.hash.startsWith(PROJECT_HASH_PREFIX)
+    && window.history.state?.minezProjectOverlay === true;
+
+  if (updateHash && !shouldReturnThroughHistory) replaceHash("#trabalho");
+
   if (dialog.open && typeof dialog.close === "function") {
     dialog.close();
   } else {
     dialog.removeAttribute("open");
     handleDialogClosed();
   }
+
+  if (shouldReturnThroughHistory) window.history.back();
 }
 
 function handleDialogClosed() {
@@ -392,14 +654,65 @@ function setupNavObserver() {
   targets.forEach((target) => observer.observe(target));
 }
 
-document.querySelector(".filters")?.addEventListener("click", (event) => {
+function renderProjectLoadError(error) {
+  console.error("Não foi possível carregar projects.json.", error);
+  portfolioData = [];
+  renderFilters();
+  renderEmptyProjects("Não foi possível carregar os projetos. Confirma o ficheiro projects.json e abre o site através de um servidor local.");
+}
+
+function syncDialogWithHash() {
+  const projectSlug = projectSlugFromHash();
+  if (!projectSlug) {
+    if (dialog.open) closeProject(false);
+    return;
+  }
+
+  const project = findProject(projectSlug);
+  if (!project) {
+    replaceHash("#trabalho");
+    if (dialog.open) closeProject(false);
+    showToast("Este projeto não está publicado ou não existe.");
+    return;
+  }
+
+  if (dialog.open) {
+    showProjectInDialog(project, true);
+  } else {
+    openProject(project.slug, null, false);
+  }
+}
+
+async function loadProjects() {
+  try {
+    const response = await fetch(PROJECTS_URL, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`Pedido falhou com o estado ${response.status}.`);
+
+    const rawProjects = await response.json();
+    if (!Array.isArray(rawProjects)) throw new TypeError("projects.json tem de conter uma lista de projetos.");
+
+    const { validCount, publishedProjects } = normalizeProjects(rawProjects);
+    if (rawProjects.length && !validCount) {
+      throw new TypeError("projects.json não contém projetos válidos.");
+    }
+
+    portfolioData = publishedProjects;
+    renderFilters();
+    renderProjects();
+    syncDialogWithHash();
+  } catch (error) {
+    renderProjectLoadError(error);
+  }
+}
+
+filterGroup?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-filter]");
   if (!button) return;
 
   const applyFilter = () => {
     activeFilter = button.dataset.filter;
     activePreviewId = null;
-    document.querySelectorAll("[data-filter]").forEach((filter) => {
+    filterGroup.querySelectorAll("[data-filter]").forEach((filter) => {
       const selected = filter === button;
       filter.classList.toggle("is-active", selected);
       filter.setAttribute("aria-pressed", String(selected));
@@ -421,13 +734,13 @@ document.querySelector(".filters")?.addEventListener("click", (event) => {
 projectGrid.addEventListener("pointerover", (event) => {
   const button = event.target.closest("[data-project]");
   if (!button) return;
-  updatePreview(portfolioData.find((project) => project.id === button.dataset.project));
+  updatePreview(findProject(button.dataset.project));
 });
 
 projectGrid.addEventListener("focusin", (event) => {
   const button = event.target.closest("[data-project]");
   if (!button) return;
-  updatePreview(portfolioData.find((project) => project.id === button.dataset.project));
+  updatePreview(findProject(button.dataset.project));
 });
 
 projectGrid.addEventListener("click", (event) => {
@@ -436,9 +749,21 @@ projectGrid.addEventListener("click", (event) => {
   openProject(button.dataset.project, button);
 });
 
-dialogClose.addEventListener("click", closeProject);
+dialogClose.addEventListener("click", () => closeProject());
 dialog.addEventListener("close", handleDialogClosed);
+dialog.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closeProject();
+});
 dialog.addEventListener("click", (event) => {
+  const navigationButton = event.target.closest("[data-project-nav]");
+  if (navigationButton) {
+    const project = findProject(navigationButton.dataset.projectNav);
+    showProjectInDialog(project, true);
+    if (project) updateProjectHash(project.slug, true);
+    return;
+  }
+
   if (event.target === dialog) closeProject();
 });
 
@@ -498,11 +823,14 @@ window.addEventListener("resize", () => {
   }
 });
 
+window.addEventListener("hashchange", syncDialogWithHash);
+window.addEventListener("popstate", syncDialogWithHash);
+
 reducedMotionQuery.addEventListener?.("change", (event) => {
   reducedMotion = event.matches;
 });
 
-renderProjects();
 registerReveals(document.querySelectorAll(".reveal"));
 setupNavObserver();
 updateScrollUI();
+loadProjects();
