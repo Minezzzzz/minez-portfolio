@@ -4,8 +4,9 @@
   --ink: #171513;
   --muted: #6f695f;
   --line: rgba(23, 21, 19, 0.34);
-  --red: #e64a2e;
-  --red-dark: #bd301d;
+  --red: #b4232d;
+  --red-dark: #861722;
+  --red-on-dark: #e65a63;
   --lavender: #9b8dd7;
   --proof: #d8d0c3;
   --display: "League Gothic", Impact, "Arial Narrow", sans-serif;
@@ -170,6 +171,8 @@ button {
   font-size: clamp(2rem, 2.6vw, 2.85rem);
   font-weight: 800;
   line-height: 1;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .brand-word {
@@ -179,6 +182,8 @@ button {
   padding: 0.08em 0.18em 0.1em 0;
   color: var(--ink);
   letter-spacing: -0.09em;
+  transform-origin: 50% 70%;
+  transition: transform 260ms var(--ease);
 }
 
 .brand-word::after {
@@ -261,10 +266,41 @@ button {
   }
 }
 
+.brand:focus-visible .brand-dot {
+  animation: minez-dot-pop 560ms var(--ease);
+}
+
+.brand:focus-visible .brand-letter--m {
+  transform: translateY(-0.025em) rotate(-3deg);
+}
+
+.brand:focus-visible .brand-letter--z {
+  box-shadow: 0.12em 0.12em 0 var(--ink);
+  transform: translateY(-0.055em) rotate(5deg);
+}
+
+.brand:active .brand-word {
+  transform: translateY(1px) scale(0.97) rotate(-0.5deg);
+}
+
+.brand:active .brand-dot {
+  animation: minez-dot-tap 360ms var(--ease);
+}
+
+.brand:active .brand-letter--z {
+  box-shadow: 0.04em 0.04em 0 var(--ink);
+  transform: translateY(0.035em) rotate(-2deg);
+}
+
 @keyframes minez-dot-pop {
   0%, 100% { transform: translateX(-50%) rotate(12deg); }
   42% { transform: translate(-50%, -0.32em) rotate(-18deg) scale(1.18); }
   72% { transform: translate(-50%, 0.02em) rotate(8deg) scale(0.94); }
+}
+
+@keyframes minez-dot-tap {
+  0%, 100% { transform: translateX(-50%) rotate(12deg); }
+  50% { transform: translate(-50%, -0.2em) rotate(-12deg) scale(1.12); }
 }
 
 .header-discipline {
@@ -1712,6 +1748,7 @@ button {
 .contact-heading h2 em {
   display: inline-block;
   margin-top: 0.08em;
+  color: var(--red-on-dark);
   font-size: 1.05em;
 }
 
@@ -1726,6 +1763,16 @@ button {
   width: 100%;
   min-height: 70px;
   margin-top: 30px;
+}
+
+.contact .button-primary {
+  border-color: var(--red-on-dark);
+  background: var(--red-on-dark);
+  color: var(--ink);
+}
+
+.contact :focus-visible {
+  outline-color: var(--red-on-dark);
 }
 
 .contact-note {
@@ -1769,7 +1816,7 @@ button {
 }
 
 .contact-details a:hover {
-  color: var(--red);
+  color: var(--red-on-dark);
 }
 
 .contact-availability {
@@ -2049,7 +2096,7 @@ button {
   to { transform: rotate(360deg); }
 }
 
-/* Sistema responsivo editorial: transições contínuas entre desktop, portátil, tablet e telemóvel. */
+/* Editorial responsive system: continuous transitions from desktop to mobile. */
 @media (max-width: 1240px) {
   :root {
     --shell: min(1480px, calc(100% - (var(--gutter) * 2)));
@@ -2097,8 +2144,8 @@ button {
 
   .hero {
     min-height: auto;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.68fr);
-    gap: clamp(26px, 4vw, 48px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.64fr);
+    gap: clamp(24px, 3.4vw, 42px);
     padding-block: 58px 86px;
   }
 
@@ -2107,7 +2154,7 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(5.85rem, 10.6vw, 7.5rem);
+    font-size: clamp(5.85rem, 10.2vw, 7.2rem);
   }
 
   .hero-image img {
@@ -2316,7 +2363,7 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(5rem, 11.2vw, 7rem);
+    font-size: clamp(4.3rem, 10.6vw, 6.6rem);
     line-height: 0.78;
   }
 
@@ -2332,7 +2379,7 @@ button {
   }
 
   .hero-media {
-    width: min(100%, 660px);
+    width: min(92%, 600px);
     justify-self: center;
     margin: 0;
   }
@@ -2356,7 +2403,7 @@ button {
 
   .work-heading h2 {
     margin-top: 24px;
-    font-size: clamp(4.6rem, 11vw, 6.3rem);
+    font-size: clamp(4rem, 10.8vw, 5.8rem);
     line-height: 0.82;
   }
 
@@ -2432,7 +2479,7 @@ button {
   }
 
   .profile-heading h2 {
-    font-size: clamp(3.9rem, 9.7vw, 5.4rem);
+    font-size: clamp(3.5rem, 9.7vw, 5.4rem);
     line-height: 0.84;
     text-wrap: balance;
   }
@@ -2458,7 +2505,7 @@ button {
   }
 
   .lab-heading h2 {
-    font-size: clamp(4.4rem, 9.4vw, 5.8rem);
+    font-size: clamp(4.05rem, 9.4vw, 5rem);
     line-height: 0.82;
   }
 
@@ -2490,7 +2537,7 @@ button {
   }
 
   .contact-heading h2 {
-    font-size: clamp(4.9rem, 11vw, 6.4rem);
+    font-size: clamp(4rem, 11vw, 6rem);
   }
 
   .contact-action {
@@ -2543,7 +2590,7 @@ button {
   }
 
   .brand {
-    font-size: clamp(2rem, 9vw, 2.45rem);
+    font-size: clamp(2.15rem, 10vw, 2.55rem);
   }
 
   .hero {
@@ -2552,7 +2599,7 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(4.75rem, 20vw, 5rem);
+    font-size: clamp(4rem, 17vw, 4.3rem);
   }
 
   .hero-scribble {
@@ -2590,7 +2637,7 @@ button {
   }
 
   .work-heading h2 {
-    font-size: clamp(4.1rem, 18vw, 4.6rem);
+    font-size: clamp(3.6rem, 14.8vw, 4.2rem);
   }
 
   .filters {
@@ -2636,7 +2683,7 @@ button {
   }
 
   .profile-heading h2 {
-    font-size: clamp(3.6rem, 14.5vw, 3.9rem);
+    font-size: clamp(3.25rem, 13.2vw, 3.75rem);
   }
 
   .profile-grid {
@@ -2669,7 +2716,7 @@ button {
   }
 
   .lab-heading h2 {
-    font-size: clamp(4.1rem, 17vw, 4.4rem);
+    font-size: clamp(3.65rem, 14.8vw, 4.05rem);
   }
 
   .lab-intro {
@@ -2685,7 +2732,7 @@ button {
   }
 
   .contact-heading h2 {
-    font-size: clamp(4.55rem, 19vw, 4.9rem);
+    font-size: clamp(4rem, 16.5vw, 4.3rem);
   }
 
   .contact-details {
@@ -2740,13 +2787,12 @@ button {
 
 @media (max-width: 370px) {
   .hero h1 {
-    font-size: clamp(4.55rem, 21vw, 4.85rem);
+    font-size: clamp(3.85rem, 17.2vw, 4rem);
   }
 
   .hero h1 span,
   .hero h1 em {
-    white-space: normal;
-    text-wrap: balance;
+    white-space: nowrap;
   }
 
   .hero-kicker span:last-child {
@@ -2763,7 +2809,7 @@ button {
   }
 
   .contact-heading h2 {
-    font-size: 4.55rem;
+    font-size: 4rem;
   }
 }
 
@@ -2835,6 +2881,28 @@ button {
 
   .reveal {
     opacity: 1;
+    transform: none;
+  }
+
+  .brand:hover .brand-dot,
+  .brand:focus-visible .brand-dot,
+  .brand:active .brand-dot {
+    animation: none !important;
+  }
+
+  .brand:hover .brand-letter--m,
+  .brand:focus-visible .brand-letter--m {
+    transform: rotate(-1deg);
+  }
+
+  .brand:hover .brand-letter--z,
+  .brand:focus-visible .brand-letter--z,
+  .brand:active .brand-letter--z {
+    box-shadow: 0.08em 0.08em 0 var(--ink);
+    transform: translateY(0.015em) rotate(-7deg);
+  }
+
+  .brand:active .brand-word {
     transform: none;
   }
 }

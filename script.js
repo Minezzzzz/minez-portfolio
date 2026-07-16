@@ -20,6 +20,9 @@ const previewNumber = document.querySelector("[data-preview-number]");
 const previewDiscipline = document.querySelector("[data-preview-discipline]");
 const previewNature = document.querySelector("[data-preview-nature]");
 const previewYear = document.querySelector("[data-preview-year]");
+const previewProof = document.querySelector("[data-preview-proof]");
+const previewNote = document.querySelector("[data-preview-note]");
+const previewHint = document.querySelector("[data-preview-hint]");
 const projectPreview = document.querySelector("#project-preview");
 const dialog = document.querySelector("#project-dialog");
 const dialogContent = document.querySelector("#dialog-content");
@@ -301,6 +304,9 @@ function renderEmptyProjects(message) {
   previewDiscipline.textContent = "Arquivo";
   previewNature.textContent = "Em atualização";
   previewYear.textContent = "—";
+  previewProof.textContent = "Arquivo sem projetos";
+  previewNote.textContent = "adiciona em projects.json ↗";
+  previewHint.textContent = "Segue o guia para publicares o primeiro projeto.";
   projectPreview.setAttribute("aria-label", message);
 }
 
