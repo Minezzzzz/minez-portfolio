@@ -125,12 +125,16 @@ const menuLabel = document.querySelector(".menu-label");
 const mainNav = document.querySelector("#main-nav");
 const siteHeader = document.querySelector("[data-header]");
 const progressBar = document.querySelector(".scroll-progress span");
+const chapterLabel = document.querySelector("[data-chapter]");
+const pageMain = document.querySelector("main");
+const pageFooter = document.querySelector(".site-footer");
 const labSection = document.querySelector(".lab");
 const labToggle = document.querySelector(".lab-toggle");
 const labToggleLabel = labToggle?.querySelector("span");
 const labExtras = [...document.querySelectorAll(".lab-extra")];
 const toast = document.querySelector("#toast");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let reducedMotion = reducedMotionQuery.matches;
 
 let activeFilter = "Todos";
 let activePreviewId = null;
@@ -138,6 +142,7 @@ let lastDialogTrigger = null;
 let toastTimer = null;
 let revealObserver = null;
 let previewTimer = null;
+let menuFocusTimer = null;
 let scrollTicking = false;
 
 function artworkMarkup(type) {
@@ -160,7 +165,7 @@ function projectArtClass(project) {
 function projectRow(project) {
   return `
     <article class="project-row reveal" data-project-row="${project.id}">
-      <button class="project-button" type="button" data-project="${project.id}" aria-label="Projeto em preparação: ${project.title}">
+      <button class="project-button" type="button" data-project="${project.id}" aria-haspopup="dialog" aria-controls="project-dialog" aria-label="Abrir ficha editorial: ${project.title}">
         <span class="project-number">${project.number}</span>
         <span class="project-info">
           <span class="project-title">${project.title}</span>
@@ -228,18 +233,10 @@ function updatePreview(project, immediate = false) {
 }
 
 function caseStudyMarkup(project) {
-  const checklist = [
-    "Substituir a capa por media real e otimizada",
-    "Preencher contexto, problema, público e restrições",
-    "Identificar função pessoal, equipa e créditos",
-    "Escolher apenas processo que explica decisões",
-    "Adicionar resultado, evidência real e aprendizagem"
-  ];
-
   return `
     <section class="case-hero">
       <div class="case-heading">
-        <span class="case-label">Modelo de caso de estudo · ainda sem conteúdo final</span>
+        <span class="case-label">Arquivo Minez · ficha editorial</span>
         <h2 id="dialog-title">${project.title}</h2>
         <p>${project.summary}</p>
       </div>
@@ -251,32 +248,45 @@ function caseStudyMarkup(project) {
     <div class="case-meta">
       <div><small>Área</small><strong>${project.discipline}</strong></div>
       <div><small>Natureza</small><strong>${project.nature}</strong></div>
-      <div><small>O meu papel</small><strong>${project.role}</strong></div>
-      <div><small>Ano / ferramentas</small><strong>${project.year} · ${project.tools}</strong></div>
+      <div><small>Estado</small><strong>Em curadoria</strong></div>
+      <div><small>Ano</small><strong>${project.year}</strong></div>
     </div>
 
     <div class="case-body">
-      <aside><p>Contexto.<br>Processo.<br>Resultado.</p></aside>
+      <aside><p>Em<br>curadoria.</p></aside>
       <div class="case-sections">
-        <section class="case-section"><h3>01 / Contexto &amp; problema</h3><p>${project.briefing}</p></section>
-        <section class="case-section"><h3>02 / O meu papel</h3><p>${project.contribution}</p></section>
-        <section class="case-section"><h3>03 / Processo &amp; decisões</h3><p>${project.process}</p></section>
-        <section class="case-section"><h3>04 / Solução &amp; resultado</h3><p>${project.result}</p></section>
-        <section class="case-section"><h3>05 / Aprendizagem</h3><p>${project.learning}</p></section>
         <section class="case-section">
-          <h3>Checklist antes de publicar</h3>
-          <ul class="case-checklist">${checklist.map((item) => `<li>${item}</li>`).join("")}</ul>
+          <h3>01 / O lugar deste projeto</h3>
+          <p>${project.summary}</p>
+        </section>
+        <section class="case-section">
+          <h3>02 / Próxima edição</h3>
+          <p>O estudo completo será publicado quando a seleção visual, o processo e os créditos estiverem prontos. Assim, o arquivo cresce sem confundir trabalho em curso com trabalho final.</p>
+          <div class="case-progress" aria-label="Etapas editoriais do projeto">
+            <span class="is-current">Seleção</span><span>Documentação</span><span>Publicação</span>
+          </div>
         </section>
       </div>
     </div>
   `;
 }
 
-function openProject(projectId) {
+function openProject(projectId, trigger) {
   const project = portfolioData.find((item) => item.id === projectId);
   if (!project) return;
 
-  showToast("Este caso está em curadoria. Volta em breve para veres o projeto completo.");
+  lastDialogTrigger = trigger || document.activeElement;
+  dialogContent.innerHTML = caseStudyMarkup(project);
+  document.body.classList.add("dialog-open");
+
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute("open", "");
+  }
+
+  dialog.scrollTop = 0;
+  window.requestAnimationFrame(() => dialogClose.focus());
 }
 
 function closeProject() {
@@ -296,10 +306,19 @@ function handleDialogClosed() {
   }
 }
 
-function setMenu(open) {
+function setMenu(open, restoreFocus = false) {
+  window.clearTimeout(menuFocusTimer);
   document.body.classList.toggle("menu-open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
   menuLabel.textContent = open ? "Fechar" : "Menu";
+  pageMain.inert = open;
+  pageFooter.inert = open;
+
+  if (open) {
+    menuFocusTimer = window.setTimeout(() => mainNav.querySelector("a")?.focus(), reducedMotion ? 0 : 300);
+  } else if (restoreFocus) {
+    menuToggle.focus();
+  }
 }
 
 function showToast(message) {
@@ -342,15 +361,26 @@ function updateScrollUI() {
 function setupNavObserver() {
   if (!("IntersectionObserver" in window)) return;
   const navLinks = [...mainNav.querySelectorAll("a")];
-  const targets = navLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
+  const targets = ["inicio", "trabalho", "perfil", "lab", "contacto"]
+    .map((id) => document.getElementById(id))
     .filter(Boolean);
+  const chapters = {
+    inicio: "00 / Início",
+    trabalho: "01 / Projetos",
+    perfil: "02 / Sobre",
+    lab: "03 / Laboratório",
+    contacto: "04 / Contacto"
+  };
 
   const observer = new IntersectionObserver((entries) => {
     const visible = entries
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
     if (!visible) return;
+
+    if (chapterLabel) {
+      chapterLabel.textContent = chapters[visible.target.id] || chapters.inicio;
+    }
 
     navLinks.forEach((link) => {
       const active = link.getAttribute("href") === `#${visible.target.id}`;
@@ -366,14 +396,26 @@ document.querySelector(".filters")?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-filter]");
   if (!button) return;
 
-  activeFilter = button.dataset.filter;
-  activePreviewId = null;
-  document.querySelectorAll("[data-filter]").forEach((filter) => {
-    const selected = filter === button;
-    filter.classList.toggle("is-active", selected);
-    filter.setAttribute("aria-pressed", String(selected));
-  });
-  renderProjects(activeFilter);
+  const applyFilter = () => {
+    activeFilter = button.dataset.filter;
+    activePreviewId = null;
+    document.querySelectorAll("[data-filter]").forEach((filter) => {
+      const selected = filter === button;
+      filter.classList.toggle("is-active", selected);
+      filter.setAttribute("aria-pressed", String(selected));
+    });
+    renderProjects(activeFilter);
+  };
+
+  if (!reducedMotion && typeof document.startViewTransition === "function") {
+    document.startViewTransition(applyFilter);
+  } else {
+    applyFilter();
+  }
+
+  if (window.innerWidth <= 840) {
+    button.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest", inline: "center" });
+  }
 });
 
 projectGrid.addEventListener("pointerover", (event) => {
@@ -400,6 +442,24 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) closeProject();
 });
 
+dialog.addEventListener("keydown", (event) => {
+  if (event.key !== "Tab") return;
+
+  const focusable = [...dialog.querySelectorAll("a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])")]
+    .filter((element) => !element.hidden);
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const leavingStart = event.shiftKey && document.activeElement === first;
+  const leavingEnd = !event.shiftKey && document.activeElement === last;
+
+  if (leavingStart || leavingEnd) {
+    event.preventDefault();
+    (leavingStart ? last : first).focus();
+  }
+});
+
 menuToggle.addEventListener("click", () => {
   setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
 });
@@ -411,8 +471,7 @@ mainNav.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   if (document.body.classList.contains("menu-open")) {
-    setMenu(false);
-    menuToggle.focus();
+    setMenu(false, true);
   }
 });
 
@@ -434,9 +493,13 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 760 && document.body.classList.contains("menu-open")) {
+  if (window.innerWidth > 840 && document.body.classList.contains("menu-open")) {
     setMenu(false);
   }
+});
+
+reducedMotionQuery.addEventListener?.("change", (event) => {
+  reducedMotion = event.matches;
 });
 
 renderProjects();

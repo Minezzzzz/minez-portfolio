@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=League+Gothic&amp;family=Newsreader:ital,opsz,wght@1,6..72,300..500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260716-8">
+  <script src="script.js?v=20260716-8" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
@@ -41,7 +41,7 @@
 
       <div class="header-discipline" aria-hidden="true">
         <span class="registration-mark"></span>
-        <span>Multimédia / Portugal</span>
+        <span data-chapter>00 / Início</span>
       </div>
 
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
@@ -115,13 +115,14 @@
           <button type="button" class="filter" data-filter="Fotografia" aria-pressed="false">Fotografia</button>
           <button type="button" class="filter" data-filter="3D" aria-pressed="false">3D</button>
         </div>
+        <p class="filter-cue" aria-hidden="true">Desliza para explorar <span>→</span></p>
 
         <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
 
         <div class="project-stage">
           <div class="project-list" id="project-grid"></div>
 
-          <aside class="project-preview reveal" id="project-preview" aria-live="polite">
+          <aside class="project-preview reveal" id="project-preview">
             <div class="preview-frame">
               <div class="preview-art" data-preview-art aria-hidden="true"></div>
               <span class="preview-tape" data-preview-number>01</span>
@@ -198,42 +199,42 @@
           <article class="lab-card reveal">
             <span class="lab-number">101</span>
             <div class="lab-art art-generative" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <div class="lab-meta"><strong>Composição generativa</strong><small>formas em bruto ↗</small></div>
+            <div class="lab-meta"><strong>Composição generativa</strong><small>formas em bruto</small></div>
           </article>
           <article class="lab-card reveal" data-delay="1">
             <span class="lab-number">102</span>
             <div class="lab-art art-type" aria-hidden="true"><span>EM</span><span>MOVIMENTO</span><span>EM</span><span>MOVIMENTO</span></div>
-            <div class="lab-meta"><strong>Tipografia em movimento</strong><small>ritmo e repetição ↗</small></div>
+            <div class="lab-meta"><strong>Tipografia em movimento</strong><small>ritmo e repetição</small></div>
           </article>
           <article class="lab-card reveal" data-delay="2">
             <span class="lab-number">103</span>
             <div class="lab-art art-light" aria-hidden="true"><i></i></div>
-            <div class="lab-meta"><strong>Luz, cor e matéria</strong><small>luz &amp; sombra ↗</small></div>
+            <div class="lab-meta"><strong>Luz, cor e matéria</strong><small>luz &amp; sombra</small></div>
           </article>
           <article class="lab-card reveal" data-delay="3">
             <span class="lab-number">104</span>
             <div class="lab-art art-forms" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="lab-meta"><strong>Formas em transformação</strong><small>texturas &amp; camadas ↗</small></div>
+            <div class="lab-meta"><strong>Formas em transformação</strong><small>texturas &amp; camadas</small></div>
           </article>
           <article class="lab-card reveal" data-delay="4">
             <span class="lab-number">105</span>
             <div class="lab-art art-interface" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="lab-meta"><strong>Interfaces em teste</strong><small>rascunhos úteis ↗</small></div>
+            <div class="lab-meta"><strong>Interfaces em teste</strong><small>rascunhos úteis</small></div>
           </article>
           <article class="lab-card lab-extra" hidden>
             <span class="lab-number">106</span>
             <div class="lab-art art-sound" aria-hidden="true"><i></i></div>
-            <div class="lab-meta"><strong>Som em camadas</strong><small>som &amp; ritmo ↗</small></div>
+            <div class="lab-meta"><strong>Som em camadas</strong><small>som &amp; ritmo</small></div>
           </article>
           <article class="lab-card lab-extra" hidden>
             <span class="lab-number">107</span>
             <div class="lab-art art-volume" aria-hidden="true"><i></i><i></i></div>
-            <div class="lab-meta"><strong>Volume &amp; composição</strong><small>espaço em estudo ↗</small></div>
+            <div class="lab-meta"><strong>Volume &amp; composição</strong><small>espaço em estudo</small></div>
           </article>
           <article class="lab-card lab-extra" hidden>
             <span class="lab-number">108</span>
             <div class="lab-art art-montage" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="lab-meta"><strong>Montagem &amp; ritmo</strong><small>acidentes felizes ↗</small></div>
+            <div class="lab-meta"><strong>Montagem &amp; ritmo</strong><small>acidentes felizes</small></div>
           </article>
         </div>
 
