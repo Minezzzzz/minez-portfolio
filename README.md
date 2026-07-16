@@ -2,6 +2,8 @@
 
 Website estático de Rafael Minez, construído com HTML, CSS e JavaScript sem frameworks ou processo de build.
 
+**Website publicado:** [minez-portfolio.pages.dev](https://minez-portfolio.pages.dev/)
+
 ## Estrutura publicada
 
 - `index.html` — conteúdo e estrutura do website.
